@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+:root {
+    --background: #0a0a0a;
+    /* Fundo padrão escuro */
+    --foreground: #ededed;
+    /* Cor do texto padrão */
+    --azul-site: #041E41;
+    /* Cor azul corporativa */
+    --amarelo-claro: #D7BC7A;
+    /* Amarelo claro para botões */
+    --amarelo-forte: #906C34;
+    /* Amarelo forte para hover */
+}
+
+body {
+    background: var(--azul-site);
+    /* Usando o azul como cor de fundo */
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.table-container {
+    height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #52525b;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #6b7280;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+.sticky-header th {
+    position: sticky;
+    top: 0;
+    background-color: var(--background);
+    /* Corrigido para fundo escuro */
+    color: var(--foreground);
+    /* Cor do texto clara para contraste */
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+.modal-content {
+    background-color: #041E41;
+    color: var(--foreground);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    z-index: 100;
+}
+
+.input-field {
+    background-color: #3f3f46;
+    color: var(--foreground);
+    border: 1px solid #52525b;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    border-color: #86efac;
+}
+
+.button {
+    background-color: var(--amarelo-claro);
+    /* Configuração padrão de fundo para os botões */
+    color: var(--foreground);
+}
+
+.button:hover {
+    background-color: var(--amarelo-forte);
+    /* Mudança para amarelo forte ao passar o mouse */
+}
+
+/* Botão Cancelar com cores customizadas*/
+.button-cancel {
+    background-color: #dc2626;
+    color: var(--foreground);
+}
+
+.button-cancel:hover {
+    background-color: #b91c1c;
+}
+
+/* Botão Salvar com cores padrão/compatíveis */
+.button-save {
+    background-color: #16a34a;
+    color: var(--foreground);
+}
+
+.button-save:hover {
+    background-color: #15803d;
+}
+
+@keyframes turn-page {
+    from {
+        transform: rotateY(-180deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-turn-page {
+    animation: turn-page 0.7s ease-out;
+}
+
+.table-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .table-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .table-container {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+@media (max-width: 1280px) {
+    .table-container {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}

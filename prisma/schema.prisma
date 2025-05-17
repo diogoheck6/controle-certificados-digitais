@@ -1,0 +1,42 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = "postgresql://postgres:@localhost:5432/controle-certificados-web"
+}
+
+model AllowedEmail {
+    id        Int      @id @default(autoincrement())
+    email     String   @unique
+    createdAt DateTime @default(now())
+    updatedAt DateTime
+}
+
+model Certificado {
+    id                 Int      @id @default(autoincrement())
+    nome               String
+    cnpjCpf            String   @unique
+    senha              String
+    dataVencimento     DateTime
+    diasParaVencimento Int
+    tipoCertificado    String
+    statusCertificado  String
+    statusSenha        String
+    usuarioId          Int?
+    path               String?
+    grupo              String?
+    Usuario            Usuario? @relation(fields: [usuarioId], references: [id])
+}
+
+model Usuario {
+    id          Int           @id @default(autoincrement())
+    nome        String
+    senha       String
+    email       String        @unique
+    createdAt   DateTime      @default(now())
+    role        String        @default("USER")
+    updatedAt   DateTime
+    Certificado Certificado[]
+}
