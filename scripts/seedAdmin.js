@@ -14,8 +14,8 @@ async function main() {
         const hashedPassword = await hash('1234', 10);
         await prisma.usuario.create({
             data: {
-                nome: 'Mariana Lopes',
-                email: 'mariana.lopes@navecon.net.br',
+                nome: '',
+                email: '',
                 senha: hashedPassword,
                 role: 'ADMIN',
             },
@@ -34,7 +34,7 @@ async function main() {
     if (!adminEmail) {
         await prisma.allowedEmail.create({
             data: {
-                email: 'mariana.lopes@navecon.net.br',
+                email: '',
             },
         });
         console.log('E-mail do administrador adicionado à tabela AllowedEmail.');
