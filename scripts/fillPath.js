@@ -4,8 +4,8 @@ const path = require('path');
 
 const prisma = new PrismaClient();
 
-const E_CNPJ_DIR = "//192.168.5.254/arquivos/ARQUIVOS/12 - SETOR SOCIETÁRIO/ANE/32 Certificado Baixados/E-cnpj";
-const E_CPF_DIR = "//192.168.5.254/arquivos/ARQUIVOS/12 - SETOR SOCIETÁRIO/ANE/32 Certificado Baixados/E-cpf";
+const E_CNPJ_DIR = "";
+const E_CPF_DIR = "";
 
 async function main() {
     try {
